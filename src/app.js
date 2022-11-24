@@ -1,5 +1,5 @@
-const express = require("express");
 const { v4: uuidv4 } = require("uuid");
+const express = require("express");
 
 const app = express();
 
@@ -135,4 +135,4 @@ app.post("/withdraw", verifyIfExistsAccountCPF, (request, response) => {
   return response.status(201).send();
 });
 
-app.listen(3333);
+module.exports = app;
