@@ -112,4 +112,19 @@ app.post("/withdraw", verifyIfExistsAccountCPF, (request, response) => {
   return response.status(201).send();
 });
 
+app.put("/account", verifyIfExistsAccountCPF, function (request, response) {
+  const { name } = request.body;
+  const { customer } = request;
+
+  customer.name = name;
+
+  return response.status(201).send();
+});
+
+app.get("/account", verifyIfExistsAccountCPF, function (request, response) {
+  const { customer } = request;
+
+  return response.json(customer);
+});
+
 app.listen(3333);
