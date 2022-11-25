@@ -73,7 +73,9 @@ app.put("/account", verifyIfExistsAccountCPF, (request, response) => {
 app.delete("/account", verifyIfExistsAccountCPF, (request, response) => {
   const { customer } = request;
 
-  customers.splice(customer, 1);
+  const indexCustomer = customers.indexOf(customer);
+
+  customers.splice(indexCustomer, 1);
 
   return response.status(200).json(customers);
 });
